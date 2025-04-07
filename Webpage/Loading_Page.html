@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trivault Title</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: url("Loading_background.jpg") no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Playfair Display', serif;
+      height: 100vh;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .title-container {
+      position: absolute;
+      left: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      padding: 20px 40px;
+      border-radius: 20px;
+      transition: opacity 0.8s ease-in-out;
+      z-index: 2;
+    }
+
+    .logo {
+      width: 120px;
+      animation: slowPulse 8s ease-in-out infinite;
+    }
+
+    @keyframes slowPulse {
+      0%, 100% {
+        filter: brightness(1.1) drop-shadow(0 0 10px #f0c94d);
+      }
+      50% {
+        filter: brightness(1.4) drop-shadow(0 0 18px #ffd700);
+      }
+    }
+
+    .title-text {
+      font-size: 4rem;
+      font-weight: 700;
+      font-style: italic;
+      background: linear-gradient(135deg, #fff8dc 10%, #ffd700 50%, #fff8dc 90%);
+      background-size: 300% auto;
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      animation: shineText 10s ease-in-out infinite;
+      text-shadow: 2px 2px 5px rgba(255, 215, 0, 0.1);
+      transition: opacity 0.8s ease-in-out;
+      text-align: left;
+    }
+
+    @keyframes shineText {
+      0% {
+        background-position: -300% center;
+      }
+      100% {
+        background-position: 300% center;
+      }
+    }
+
+    .divider {
+      display: none; /* Not needed anymore unless you want to position it separately */
+    }
+
+    .fade-screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: black;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1.2s ease-in-out;
+      z-index: 5;
+    }
+
+    .fade-screen.active {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body onclick="startSequence()">
+  <div class="title-container" id="initial-view">
+    <img src="lion_logo.png" alt="Lion Logo" class="logo" id="logo">
+    <div class="title-text" id="main-text">Trivault</div>
+  </div>
+
+  <div class="fade-screen" id="fade-screen"></div>
+
+  <script>
+    let started = false;
+    const textEl = document.getElementById("main-text");
+    const logoEl = document.getElementById("logo");
+    const container = document.getElementById("initial-view");
+    const fadeOverlay = document.getElementById("fade-screen");
+
+    function startSequence() {
+      if (started) return;
+      started = true;
+
+      container.style.opacity = 0;
+
+      setTimeout(() => {
+        logoEl.style.display = "none";
+        textEl.style.opacity = 0;
+
+        setTimeout(() => {
+          textEl.textContent = "Audit, Shield, Reclaim";
+          container.style.opacity = 1;
+          textEl.style.opacity = 1;
+
+          setTimeout(() => {
+            fadeOverlay.classList.add("active");
+
+            setTimeout(() => {
+              window.location.href = "Home.html";
+            }, 1200);
+          }, 2500);
+        }, 600);
+      }, 600);
+    }
+  </script>
+</body>
+</html>

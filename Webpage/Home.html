@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Audit Shield Reclaim</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('Home_background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .logo {
+      color: #f0c94d;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      flex: 1;
+    }
+
+    .nav-center {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      flex: 2;
+    }
+
+    .nav-center a {
+      position: relative;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 17px;
+      padding: 10px 0;
+      transition: color 0.3s ease;
+    }
+
+    .nav-center a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background: #f0c94d;
+      transition: width 0.4s ease;
+    }
+
+    .nav-center a:hover {
+      color: #f0c94d;
+    }
+
+    .nav-center a:hover::after {
+      width: 100%;
+    }
+
+    .hero-section {
+      margin-top: 120px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 60px 100px;
+      position: relative;
+      background: transparent;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    .hero-content {
+      z-index: 1;
+      max-width: 50%;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: #f2f2f2;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+    }
+
+    .hero-content p {
+      font-size: 24px;
+      line-height: 1.7;
+      color: #ccc;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    }
+
+    .lion-logo {
+      width: 200px;
+      margin-bottom: 30px;
+    }
+
+    .lion-image {
+      max-width: 40%;
+      z-index: 1;
+    }
+
+    .buttons-row {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 30px;
+      padding: 100px 80px 60px 80px;
+    }
+
+    .btn-container {
+      width: 100%;
+    }
+
+    .btn {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.8);
+      border: 2px solid #444;
+      border-radius: 20px;
+      padding: 35px 40px;
+      font-family: 'Georgia', serif;
+      font-size: 24px;
+      font-weight: bold;
+      color: #f0ca4d;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), inset 0 0 8px rgba(255, 215, 0, 0.2);
+      backdrop-filter: blur(3px);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(135deg, transparent 45%, #f0c94d 50%, transparent 55%);
+      transition: left 2.5s ease-in-out;
+      z-index: 0;
+      pointer-events: none;
+    }
+    
+
+    .btn:hover::before {
+      left: 0;
+    }
+    
+
+    .btn-title, .btn-quote {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn .btn-title {
+      flex: 1;
+      text-align: left;
+      color: #FFD700;
+    }
+
+    .btn .btn-quote {
+      flex: 2;
+      font-size: 16px;
+      font-style: italic;
+      text-align: right;
+      color: #e0e0e0;
+    }
+
+    .developer-section {
+      padding: 80px 100px;
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .developer-card {
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 15px;
+    }
+
+    .developer-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-right: 20px;
+    }
+
+    .developer-info h3 {
+      margin: 0;
+      color: #f0c94d;
+    }
+
+    .developer-info p {
+      margin: 5px 0 0;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <h2 class="logo">TRIVAULT</h2>
+    <div class="nav-center">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+
+  <div class="hero-section">
+    <div class="hero-content">
+      <img src="lion_logo.png" alt="Lion Logo" class="lion-logo">
+      <h1>Clarity, Integrity, and Justice</h1>
+      <p>
+        At the heart of our system lies a triumphant trinity — 
+        <span style="color:#ffd700; font-weight:bold;">Audit</span>,
+        <span style="color:#ffd700; font-weight:bold;">Shield</span>, and
+        <span style="color:#ffd700; font-weight:bold;">Reclaim</span> — 
+        each forged with the precision of truth and the strength of principle. We empower users to confidently navigate complex systems, knowing they are protected by unwavering standards and transparent processes. Our mission is to restore faith in accountability, uphold the sanctity of honest records, and reclaim control in the face of ambiguity. Welcome to a platform where truth prevails and every click reaffirms your trust in justice.
+      </p>
+    </div>
+    <img src="lion_image.png" alt="Lion Galaxy" class="lion-image">
+  </div>
+
+  <div class="buttons-row">
+    <div class="btn-container">
+      <a href="../1.Track and Predict Feature/TrackPage.html">
+        <button class="btn">
+          <span style="color:#c0c0c0; font-style: italic; font-size: 1.2em; font-weight: bold; text-shadow: 1px 1px 1px #000, 2px 2px 4px rgba(0,0,0,0.4); display: inline-block;">
+            Audit
+          </span>        
+          <span class="btn-quote">The goal of auditing is not to find fault, but to build trust through clarity and truth.</span>
+        </button>
+      </a>
+    </div>
+
+    <div class="btn-container">
+      <a href="../2.Fraud Detection Feature/Detect.html">
+        <button class="btn">
+          <span style="color:#c0c0c0; font-style: italic; font-size: 1.2em; font-weight: bold; text-shadow: 1px 1px 1px #000, 2px 2px 4px rgba(0,0,0,0.4); display: inline-block;">Shield</span>
+          <span class="btn-quote">Let the shield of integrity rise before fraud finds a way in.</span>
+        </button>
+      </a>
+    </div>
+
+    <div class="btn-container">
+      <a href="../3.Recovery Feature/Recover.html">
+        <button class="btn">
+          <span style="color:#c0c0c0; font-style: italic; font-size: 1.2em; font-weight: bold; text-shadow: 1px 1px 1px #000, 2px 2px 4px rgba(0,0,0,0.4); display: inline-block;">Reclaim</span>
+          <span class="btn-quote">Every act of reclaiming is a step toward justice and a strike against deception.</span>
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <div class="developer-section">
+    <div class="developer-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Dev1">
+      <div class="developer-info">
+        <h3>Shreyash Raj Bamrara</h3>
+      </div>
+    </div>
+    <div class="developer-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Dev2">
+      <div class="developer-info">
+        <h3>Daksh Gautam</h3>
+      </div>
+    </div>
+    <div class="developer-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="Dev3">
+      <div class="developer-info">
+        <h3>Manus Nautiyal</h3>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
