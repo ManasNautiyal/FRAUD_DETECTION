@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aureus System Architecture</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .box {
+      background: #ffffff;
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      margin: 5px;
+      width: 200px;
+      font-size: 13px;
+    }
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #1b4f72;
+      background-color: #d4e6f1;
+      padding: 16px;
+      border: 3px solid #bdc3c7;
+      border-radius: 16px;
+      box-shadow: 0 0 12px #bdc3c7;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 10px 0;
+    }
+    .line {
+      width: 3px;
+      height: 20px;
+      background-color: #7f8c8d;
+      margin: 10px 0;
+    }
+    .sub-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 10px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      padding: 5px;
+      background-color: #f9f9fb;
+    }
+    .features-group {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      border: 3px solid #00ff7f;
+      border-radius: 16px;
+      background: #ecf0f1;
+      box-shadow: 0 0 20px #00ff7f;
+      margin-bottom: 20px;
+    }
+    .sub-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .box-highlight {
+      background-color: #aed6f1;
+      font-weight: bold;
+    }
+    .connector-horizontal {
+      height: 3px;
+      width: 20px;
+      background-color: #7f8c8d;
+      margin: 0 5px;
+    }
+    .multi-connector {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: -10px;
+    }
+    .data-layer-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      border: 3px solid #f1c40f;
+      border-radius: 16px;
+      background: #fcf3cf;
+      box-shadow: 0 0 20px #f1c40f;
+    }
+  </style>
+</head>
+<body>
+  <div class="box title">Aureus – AI Finance Guardian</div>
+  <div class="line"></div>
+  <div class="box box-highlight" style="border: 3px solid #bdc3c7; box-shadow: 0 0 12px #bdc3c7;">Application Layer<br>(Streamlit, HTML, CSS)</div>
+  <div class="line"></div>
+
+  <div class="features-group">
+    <div class="sub-container" style="border-color:#5dade2; box-shadow: 0 0 10px #5dade2;">
+      <div class="box box-highlight" style="background-color:#5dade2; color:white;">Track & Predict</div>
+      <div class="sub-row">
+        <div class="box">DashBoard/Graphs.py</div>
+        <div class="box">Trained Model.pkl</div>
+        <div class="box">Data Preprocessing</div>
+        <div class="box">AI Assistant<br><small>Langchain + advisor.py</small></div>
+      </div>
+    </div>
+    <div class="sub-container" style="border-color:#e74c3c; box-shadow: 0 0 10px #e74c3c;">
+      <div class="box box-highlight" style="background-color:#e74c3c; color:white;">Fraud Detection</div>
+      <div class="sub-row">
+        <div class="box">Anomaly Detection</div>
+        <div class="box">Pattern Analysis</div>
+        <div class="box">alert_logic.py</div>
+      </div>
+    </div>
+    <div class="sub-container" style="border-color:#00ff7f; box-shadow: 0 0 10px #00ff7f;">
+      <div class="box box-highlight" style="background-color:#27ae60; color:white;">Recovery System</div>
+      <div class="sub-row">
+        <div class="box">recovery_emails.py</div>
+        <div class="box">contacts_agencies.py</div>
+        <div class="box">user_confirm_form</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="line"></div>
+
+  <div class="data-layer-group">
+    <div class="box box-highlight">Data Layer<br>(CSV, Logs, Model Outputs)</div>
+    <div class="row">
+      <div class="box">transaction_data.csv</div>
+      <div class="box">user_behavior_data</div>
+      <div class="box">model outputs / logs</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fraud Detection Dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
+      color: white;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      display: flex;
+      width: 98vw;
+      height: 95vh;
+      background: #111;
+      border-radius: 40px;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+      padding: 25px;
+      gap: 25px;
+    }
+
+    .ai-assistant {
+      width: 23%;
+      background: linear-gradient(145deg, #1a1a1a, #0c0c0c);
+      border-radius: 40px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: inset 0 0 12px rgba(255, 215, 0, 0.15);
+      border: 1px solid gold;
+    }
+
+    .assistant-content {
+      flex-grow: 1;
+      margin-bottom: 20px;
+    }
+
+    .main-panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .dashboard {
+      background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+      border-radius: 30px;
+      padding: 20px;
+      height: 73%;
+      box-shadow: 0 0 18px rgba(255, 215, 0, 0.15);
+      border: 1px solid gold;
+    }
+
+    .data-section {
+      background: linear-gradient(145deg, #101010, #050505);
+      border-radius: 30px;
+      padding: 20px;
+      height: 22%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 15px;
+      border: 1px solid gold;
+      box-shadow: inset 0 0 8px rgba(255, 215, 0, 0.1);
+    }
+
+    input[type="text"] {
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid gold;
+      background-color: #222;
+      color: white;
+      width: 250px;
+    }
+
+    button {
+      padding: 12px 24px;
+      border-radius: 12px;
+      border: none;
+      background: gold;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    button:hover {
+      background: #fff200;
+      transform: scale(1.05);
+    }
+
+    h2, h3 {
+      color: gold;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+      }
+
+      .ai-assistant {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .data-section {
+        flex-direction: column;
+        height: auto;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Left AI Assistant Panel -->
+    <div class="ai-assistant">
+      <div class="assistant-content">
+        <h2>AI Assistant</h2>
+        <p>Chat history, help text, or controls can go here.</p>
+      </div>
+      <button>Send</button>
+    </div>
+
+    <!-- Main Dashboard Panel -->
+    <div class="main-panel">
+      <div class="dashboard">
+        <h2>Dashboard for Graph and Visual Representation</h2>
+      </div>
+
+      <div class="data-section">
+        <input type="text" placeholder="Enter data...">
+        <button>Submit</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
